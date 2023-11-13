@@ -17,7 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from main_application.views import page_not_found
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("autocatalog/", include("main_application.urls", namespace="main_application")),
 ]
+
+handler_error = page_not_found
