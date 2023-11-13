@@ -17,8 +17,10 @@ class MainPageView(View):
 
 class CategoriesView(View):
 
-    def get(self, request):
+    def get(self, request, type_id, year=None):
         """
         Get categories of cars
         """
-        return HttpResponse('Categories')
+        if year:
+            return HttpResponse(str(year) + ' Categories ' + type_id)
+        return HttpResponse('Categories ' + type_id)
